@@ -74,5 +74,5 @@ app.use('/api/rating', require('./routes/ratingRoutes'));
 app.use('/api/trip', require('./routes/tripRoutes'));
 app.use('/api/admin', require('./routes/adminRoutes'));
 
-const PORT = 5001;
+const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => console.log(`🚀 Server is running on port ${PORT}`));
