@@ -10,14 +10,17 @@ const app = express();
 // ✅ Connect DB
 connectDB();
 
-// ✅ CORS FIX (VERY IMPORTANT)
+// ✅🔥 PROPER CORS FIX (IMPORTANT)
 app.use(
     cors({
-        origin: "*", // allow all (for now)
+        origin: ["http://localhost:3000"], // allow frontend
         methods: ["GET", "POST", "PUT", "DELETE"],
         credentials: true,
     })
 );
+
+// ✅🔥 Handle preflight requests (VERY IMPORTANT)
+app.options("*", cors());
 
 // ✅ Middleware
 app.use(express.json());
