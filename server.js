@@ -10,12 +10,12 @@ const app = express();
 // ✅ Connect DB
 connectDB();
 
-// ✅🔥 CORRECT CORS (NO OPTIONS LINE)
+// ✅🔥 FINAL CORS FIX (IMPORTANT)
 app.use(
     cors({
-        origin: "http://localhost:3000", // frontend URL
+        origin: "*", // allow ALL (fixes your error)
         methods: ["GET", "POST", "PUT", "DELETE"],
-        credentials: true,
+        allowedHeaders: ["Content-Type", "Authorization"],
     })
 );
 
